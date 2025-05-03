@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Shop</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Motor Vehicle Marketplace 🚙💨</h1>
+
+    <form method="POST">
+        <label for="car_name">Car Name:</label>
+        <input type="text" name="car_name" id="car_name" required>
+      
+        <label for="car_price">Car Price:</label>
+        <input type="number" name="car_price" id="car_price" required>
+      
+        <button type="submit" name="add_custom_car">Add Car</button>
+    </form>
+
+    <form method="POST">
+        <label for="car_ID">Car ID:</label>
+        <input type="text" name="car_ID" id="car_ID" required>
+
+        <button type="submit" name="remove_custom_car">Remove Car</button>
+    </form>
+
+
+
+    <!-- {% if message %} -->
+        <p class="message">{{ message }}</p>
+    <!-- {% endif %} -->
+
+    <h2>Cars in Stock:</h2>
+    <ul>
+        {% for car in cars %}
+            <li>ID: {{ car[0] }} | Name: {{ car[1] }} | Price: ${{ car[2] }}</li>
+        {% endfor %}
+    </ul>
+
+
+</body>
+</html>
